@@ -136,7 +136,6 @@ def get_all_data(api_key):
 @app.route("/api/<api_key>/<int:id>", methods=["GET"])
 def get_data(api_key, id):
     api_key = api_key.upper()
-    print(api_key)
     table_name = ""
     data = []
     with sqlite3.connect(DATABASE) as con:
@@ -151,7 +150,6 @@ def get_data(api_key, id):
         cursor.execute(f"SELECT * FROM {table_name} \
                         WHERE id = {id}")
         result = cursor.fetchone()
-        print(result)
         if result is None:
             return {"message": "No rows with this id"}, 400
         data.append({
@@ -242,6 +240,11 @@ def delete_data(api_key, id):
         cursor.execute(f"DELETE FROM {table_name} WHERE id = {id}")
 
     return {"message": "This row deleted"}
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return redirect(url_for("close_session"))
 
 
 if __name__ == "__main__":
