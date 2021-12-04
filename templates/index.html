@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+{% block body %}
+
+<div class="container" align="center">
+	<h1>Вы вошли под пользователем: {{user}}</h1>
+	<h2>Ваш API-Ключ: {{ api_key }}</h2>
+	<br><br>
+	
+</div>
+
+<div class="container"><h2>Инструкция работы с API</h2></div>
+<div class="container table-responsive">
+<table class="table  align-middle">
+  <thead>
+    <tr>
+      <th scope="col">REQUEST</th>
+      <th scope="col">URL</th>
+      <th scope="col">JSON</th>
+      <th scope="col">RESULT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">GET</th>
+      <td>hostname/api/&lt;api_key&gt;/</td>
+      <td>-</td>
+      <td>Вывод всех данных в формате json</td>
+    </tr>
+    <tr>
+      <th scope="row">GET</th>
+      <td>hostname/api/&lt;api_key&gt;/&lt;id&gt;</td>
+      <td>-</td>
+      <td>Вывод данных записи с указанным id</td>
+    </tr>
+    <tr>
+      <th scope="row">POST</th>
+      <td>hostname/api/&lt;api_key&gt;/</td>
+      <td>{<br>"fullname": "Иван Иванов",<br> "number": "999999999"<br>}</td>
+      <td>Добавление новой записи в базу из json</td>
+    </tr>
+    <tr>
+      <th scope="row">PUT</th>
+      <td>hostname/api/&lt;api_key&gt;/&lt;id&gt;</td>
+      <td>{<br>"fullname": "Новое имя",<br> "number": "Новый номер"<br>}</td>
+      <td>Изменение данных на данные из json в записи с указанным id</td>
+    </tr>
+    <tr>
+      <th scope="row">DELETE</th>
+      <td>hostname/api/&lt;api_key&gt;/&lt;id&gt;</td>
+      <td>-</td>
+      <td>Удаление записи с указанным id</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br><br>
+<div class="container" align="center"><h2>Демонстрация работы c API</h2>
+</div>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>Создаем нового пользователя и логинимся под ним</h4>
+	<img align="center" src="{{ url_for('static', filename='img/1.png') }}" width="90%">
+</div>
+	<br>
+	<br>
+	<br>
+<div class="container" align="center">
+	<h4>Далее, для создания запросов будет использоваться программа <a href="https://www.postman.com/downloads/">Postman</a></h4>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>1. Отправляем GET запрос для получения всех данных</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/2.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/3.png') }}" width="90%">
+	<br>
+</div>
+	<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>2. Отправляем POST запрос для добавления новой записи</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/4.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/5.png') }}" width="90%">
+	<br>
+</div>
+<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>3. Отправим GET запрос для получения данных</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/6.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/7.png') }}" width="90%">
+	<br>
+</div>
+<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>4. Отправим PUT запрос для изменения данных в записи с id = 1</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/8.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/9.png') }}" width="90%">
+	<br>
+</div>
+<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>5. Отправим GET запрос для получения данных</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/10.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/11.png') }}" width="90%">
+	<br>
+</div>
+<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>6. Отправим DELETE запрос для удаления записи с id = 1</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/12.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/13.png') }}" width="90%">
+	<br>
+</div>
+<br>
+<div class="container border border-dark" align="center">
+	<br>
+	<h4>7. Отправим GET запрос для получения данных</h4>
+	<br>
+	<h5>Запрос</h5>
+	<img align="center" src="{{ url_for('static', filename='img/14.png') }}" width="90%">
+	<br>
+	<h5>Ответ</h5>
+	<img align="center" src="{{ url_for('static', filename='img/15.png') }}" width="90%">
+	<br>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
