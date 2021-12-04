@@ -189,8 +189,13 @@ def update_data(api_key, id):
     api_key = api_key.upper()
     table_name = ""
     new_data = request.json
-    new_fullname = new_data["fullname"] if "fullname" in new_data else None
-    new_number = new_data["number"] if "number" in new_data else None
+    new_fullname, new_number = None, None
+
+    if new_data is not None:
+        if "fullname" in new_data:
+            new_fullname = new_data["fullname"]
+        if "number" in new_data:
+            new_number = new_data["number"]
 
     with sqlite3.connect(DATABASE) as con:
         cursor = con.cursor()
