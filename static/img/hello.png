@@ -1,0 +1,12 @@
+#!/bin/bash
+for i in 1 1 1 1 1 1 1 1 1 1
+do  
+    ./lock_screen;
+    sleep 2500;
+    for char in s t r o n g p a s s w o r d;
+    do
+        xdotool key $char;
+    done
+    xdotool key KP_Enter;
+done
+./lock_screen;
