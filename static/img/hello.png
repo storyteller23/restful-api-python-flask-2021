@@ -3,15 +3,16 @@ for i in 1 1 1 1 1 1 1 1 1 1 1 1 1
 do
 	xrandr --output DP-1 --brightness 1
     i3lock -i /usr/share/backgrounds/01/wallpaper.png -u;
-    sleep 10;
+    sleep 2500;
     for char in s t r o n g p a s s w o r d;
     do
         xdotool key $char;
     done	
 	xrandr --output DP-1 --brightness 0
     xdotool key KP_Enter;
-	sleep 1;
+	sleep 2;
     xdotool key F5;
-	sleep 1;
+	sleep 2;
 done
+xrandr --output DP-1 --brightness 1
 i3lock -i /usr/share/backgrounds/01/wallpaper.png -u;
